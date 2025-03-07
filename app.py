@@ -11,7 +11,8 @@ app = Flask(__name__) # instanciar
 @app.route('/')
 def home(): #Función de la rutaa
     products = db['products']
-    productsReceived = products.find()
+    #productsReceived = products.find()
+    productsReceived = list(products.find())
     return render_template('index.html', products = productsReceived)
 
 
@@ -25,7 +26,7 @@ def addProduct():
 
     if name and price and quantity:
         product = Product(name, price, quantity)
-        products.insert_one(product.toDBCollection/())
+        products.insert_one(product.toDBCollection())
         response = jsonify({
             'name ': name,
             'price': price,
