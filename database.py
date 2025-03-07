@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 import certifi
 
-MONGO_URI = 'mongodb+srv://root:root@cluster0.bwuig.mongodb.net/'
+MONGO_URI = 'mongodb+srv://<db_username>:<db_password>@cluster0.bwuig.mongodb.net/'
 ca = certifi.where()
 
 def dbConnection():
