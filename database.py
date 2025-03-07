@@ -1,4 +1,3 @@
-from http import client
 from pymongo import MongoClient
 import certifi
 

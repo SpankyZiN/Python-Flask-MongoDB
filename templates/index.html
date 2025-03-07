@@ -41,7 +41,7 @@
                     <div class="card-body">
                         <ul class="list-group">
                             <div class="row row-col-2 row-cols-sm-2 row-cols-md-3 row cols-lg-3">
-                                
+                                {% for product in products %}
 
                                     <div class="col">
                                         <li class="list-group-item mb-3">
@@ -56,7 +56,7 @@
                                             </form>
                                         </li>
                                     </div>
-                               
+                                {% endfor %}
                             </div>
                         </ul>
                     </div>

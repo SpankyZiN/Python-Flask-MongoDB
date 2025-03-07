@@ -1,10 +1,6 @@
-from math import prod
-from urllib import response
-from xml.dom import NotFoundErr
-from flask import Flask, jsonify, redirect, render_template, request, Response, jsonify, redirect, url_for
+from flask import Flask, render_template, request, jsonify, redirect, url_for
 import database as dbase
 from product import Product
-import product
 
 db = dbase.dbConnection() #Conexion a la base de datos
 
@@ -29,7 +25,7 @@ def addProduct():
 
     if name and price and quantity:
         product = Product(name, price, quantity)
-        products.insert_one(product.toDBCollection)
+        products.insert_one(product.toDBCollection/())
         response = jsonify({
             'name ': name,
             'price': price,
@@ -57,7 +53,7 @@ def edit(product_name):
 
     if name and price and quantity:
         products.update_one({'name': product_name}, {'$set': {'name': name, 'price': price, 'quantity': quantity}})
-        responde = jsonify({ 'message' : 'Producto' + product_name + 'actualizado'})
+        response = jsonify({ 'message' : 'Producto' + product_name + 'actualizado'})
         return redirect(url_for('home'))
     else:
         return NotFound()
